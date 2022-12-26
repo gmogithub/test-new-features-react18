@@ -1,25 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Post, Post2, Post3 } from "./component/Post";
+import { Box, Button, Typography } from "@mui/material";
+import { ExampleUseTransition } from "./component/ExempleUseTransition";
+import { TestSuspenseExempleChatAi } from "./component/TestSuspenseExempleChatAi";
 
 function App() {
+  const [display, setDisplay] = useState(true);
+
+  function handleClickDisplayPost1() {
+    setDisplay(preDisplay => !preDisplay);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Typography>Suspense</Typography>
+      <Box>
+        {/*<TestSuspenseExempleChatAi/>*/}
+        {display && <React.Suspense fallback={" suspense loading"}>
+
+          <Post/>
+        </React.Suspense>}
+        <Box>
+          <Button variant={"contained"} onClick={handleClickDisplayPost1}>display post 1</Button>
+        </Box>
+      </Box>
+
+      <>============================================================</>
+
+      <Typography>Exemple transition</Typography>
+      {/*<ExampleUseTransition/>*/}
+      {/*<Box>*/}
+      {/*  <React.Suspense fallback={"suspense loading2"}>*/}
+      {/*    <Post2/>*/}
+      {/*  </React.Suspense>*/}
+      {/*</Box>*/}
+
+      {/*<>============================================================</>*/}
+
+      {/*<Box>*/}
+      {/*  <React.Suspense fallback={"suspense loading3"}>*/}
+      {/*  <Post3/>*/}
+      {/*  </React.Suspense>*/}
+      {/*</Box>*/}
+
+      <>============================================================</>
+    </Box>
   );
 }
 
