@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Post, Post2, Post3 } from "./component/Post";
+import { Post } from "./component/Post";
 import { Box, Button, Typography } from "@mui/material";
-import { ExampleUseTransition } from "./component/ExempleUseTransition";
-import { TestSuspenseExempleChatAi } from "./component/TestSuspenseExempleChatAi";
 
 function App() {
   const [display, setDisplay] = useState(true);
