@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Post } from "./component/Post";
 import { Box, Button, Typography } from "@mui/material";
+import { ExampleUseDeferredValue } from "./component/ExampleUseDeferredValue";
 
 function App() {
   const [display, setDisplay] = useState(true);
@@ -11,7 +12,8 @@ function App() {
 
   return (
     <Box>
-      <Typography>Suspense</Typography>
+      <ExampleUseDeferredValue/>
+      <Typography variant={"h3"} padding={2}>Suspense</Typography>
       <Box>
         {/*<TestSuspenseExempleChatAi/>*/}
         {display && <React.Suspense fallback={" suspense loading"}>
